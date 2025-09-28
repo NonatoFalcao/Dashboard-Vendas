@@ -50,11 +50,17 @@ st.plotly_chart(fig_scatter, use_container_width=True)
 
 import os
 charts_folder = "Figuras"
+
+# Dicionário para armazenar os gráficos filtrados
 charts_json = {}
+
+# Carrega apenas arquivos que começam com "fig_EvoGen" e terminam com ".json"
 for file in os.listdir(charts_folder):
-    if file.endswith(".json"):
+    if file.startswith("fig_EvoGen") and file.endswith(".json"):
+        # Pega o nome do gênero
         genre = file.replace("fig_EvoGen", "").replace(".json", "")
-        with open(os.path.join(charts_folder, file)) as f:
+        # Abre o arquivo e converte de JSON para gráfico Plotly
+        with open(os.path.join(charts_folder, file), "r") as f:
             charts_json[genre] = pio.from_json(f.read())
 
 # Lista de gêneros para o slider
