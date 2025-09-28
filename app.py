@@ -46,3 +46,24 @@ fig_map_scatter = {
 }
 fig_scatter = pio.read_json(fig_path / fig_map_scatter[continente_scatter])
 st.plotly_chart(fig_scatter, use_container_width=True)
+
+
+import os
+charts_folder = "Figuras"
+charts_json = {}
+for file in os.listdir(charts_folder):
+    if file.endswith(".json"):
+        genre = file.replace("fig_EvoGen", "").replace(".json", "")
+        with open(os.path.join(charts_folder, file)) as f:
+            charts_json[genre] = pio.from_json(f.read())
+
+# Lista de gêneros para o slider
+genres_list = list(charts_json.keys())
+
+# Slider para escolher o índice do gênero
+index = st.slider("Escolha o gráfico pelo índice", 0, len(genres_list)-1, 0)
+
+# Mostra o gráfico correspondente
+selected_genre = genres_list[index]
+st.write(f"**Gênero:** {selected_genre}")
+st.plotly_chart(charts_json[selected_genre])
