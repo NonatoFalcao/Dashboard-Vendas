@@ -75,3 +75,27 @@ index = st.slider("Escolha o gráfico pelo índice ⬅️➡️", 0, len(genres_
 selected_genre = genres_list[index]
 st.subheader(f"🎯 Gênero selecionado: {selected_genre}")
 st.plotly_chart(charts_json[selected_genre], use_container_width=True)
+
+st.markdown("---")
+
+# --- Seção 6: Plataformas Mais Compradas por Continente ---
+
+st.header("🌍 Plataformas Mais Compradas por Continente")
+continente = st.selectbox("Escolha o continente 🌎:", ["EU","NA","JP","Others", "Global"])
+fig_map2 = {
+    "EU": "fig_platEU.json",
+    "NA": "fig_platNA.json",
+    "JP": "fig_platJP.json",
+    "Others": "fig_platOther.json",
+    "Global": "fig_platGlobal.json"
+}
+fig_gen2 = pio.read_json(fig_path / fig_map2[continente])
+st.plotly_chart(fig_gen2, use_container_width=True)
+
+st.markdown("---")
+
+# --- Seção 7: Jogos Mais Vendidos em Cada Decada ---
+
+st.header("📊 Jogos Mais Vendidos em Cada Decada")
+fig_vendas_decada = pio.read_json(fig_path / "fig_Games.json")
+st.plotly_chart(fig_vendas_decada, use_container_width=True)
