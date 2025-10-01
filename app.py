@@ -61,22 +61,15 @@ st.header("🎨 Evolução de Vendas por Gênero")
 charts_folder = "Figuras"
 charts_json = {}
 
-# Carregar os gráficos salvos em JSON
 for file in os.listdir(charts_folder):
-    if file.startswith("fig_EvoGen") and file.endswith(".json"):
-        genre = file.replace("fig_EvoGen", "").replace(".json", "")
+    if file.startswith("fig_plat") and file.endswith(".json"):  # agora pega os arquivos certos
+        genre = file.replace("fig_plat", "").replace(".json", "")
         with open(os.path.join(charts_folder, file), "r") as f:
             charts_json[genre] = pio.from_json(f.read())
 
-# Lista de gêneros carregados
 genres_list = list(charts_json.keys())
 
-st.write("📂 Conteúdo da pasta Figuras:", os.listdir(charts_folder))
-st.write("✅ Arquivos detectados:", list(charts_json.keys()))
-
-
-if genres_list:  
-    # Slider só é chamado se houver gráficos disponíveis
+if genres_list:  # só entra se a lista não estiver vazia
     index = st.slider("Escolha o gráfico pelo índice ⬅️➡️", 0, len(genres_list)-1, 0)
     selected_genre = genres_list[index]
 
@@ -84,6 +77,7 @@ if genres_list:
     st.plotly_chart(charts_json[selected_genre], use_container_width=True)
 else:
     st.warning("⚠️ Nenhum gênero disponível em genres_list.")
+
 
 
 st.markdown("---")
