@@ -62,8 +62,8 @@ charts_folder = "Figuras"
 charts_json = {}
 
 for file in os.listdir(charts_folder):
-    if file.startswith("fig_plat") and file.endswith(".json"):  # agora pega os arquivos certos
-        genre = file.replace("fig_plat", "").replace(".json", "")
+    if file.startswith("fig_EvoGen") and file.endswith(".json"):  # agora pega os arquivos certos
+        genre = file.replace("fig_EvoGen", "").replace(".json", "")
         with open(os.path.join(charts_folder, file), "r") as f:
             charts_json[genre] = pio.from_json(f.read())
 
