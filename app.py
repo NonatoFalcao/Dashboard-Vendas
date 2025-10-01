@@ -72,11 +72,14 @@ genres_list = list(charts_json.keys())
 # Slider com emojis de seta para indicar seleção
 index = st.slider("Escolha o gráfico pelo índice ⬅️➡️", 0, len(genres_list)-1, 0)
 
-index = st.slider("Escolha o gráfico pelo índice ⬅️➡️", 0, len(genres_list)-1, 0)
+if genres_list:  # só entra se a lista não estiver vazia
+    index = st.slider("Escolha o gráfico pelo índice ⬅️➡️", 0, len(genres_list)-1, 0)
+    selected_genre = genres_list[index]
 
-selected_genre = genres_list[index]
-st.subheader(f"🎯 Gênero selecionado: {selected_genre}")
-st.plotly_chart(charts_json[selected_genre], use_container_width=True)
+    st.subheader(f"🎯 Gênero selecionado: {selected_genre}")
+    st.plotly_chart(charts_json[selected_genre], use_container_width=True)
+else:
+    st.warning("⚠️ Nenhum gênero disponível em genres_list.")
 
 
 
