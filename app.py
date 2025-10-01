@@ -7,7 +7,7 @@ import os
 st.set_page_config(page_title="🎮 Dashboard de Vendas de Jogos", layout="wide")
 st.title("🎮 Dashboard de Vendas de Jogos")
 
-fig_path = Path("Figuras")
+fig_path = Path(__file__).parent / "Figuras"
 
 # --- Seção 1: Vendas Globais por Ano ---
 st.header("📈 Evolução das Vendas Globais por Ano")
