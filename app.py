@@ -71,6 +71,10 @@ for file in os.listdir(charts_folder):
 # Lista de gêneros carregados
 genres_list = list(charts_json.keys())
 
+st.write("📂 Conteúdo da pasta Figuras:", os.listdir(charts_folder))
+st.write("✅ Arquivos detectados:", list(charts_json.keys()))
+
+
 if genres_list:  
     # Slider só é chamado se houver gráficos disponíveis
     index = st.slider("Escolha o gráfico pelo índice ⬅️➡️", 0, len(genres_list)-1, 0)
