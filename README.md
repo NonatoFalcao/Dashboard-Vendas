@@ -19,7 +19,7 @@ Foram utilizadas bibliotecas como **Plotly** , **Pandas**, e **Streamlit** para 
 
 # Para visualizar o projeto:
 ### 1. Clone o repositório
-bash
+```bash
 git clone https://github.com/SEU-USUARIO/SEU-REPO.git
 cd SEU-REPO
 
