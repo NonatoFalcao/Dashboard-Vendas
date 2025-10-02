@@ -17,12 +17,12 @@ Foram utilizadas bibliotecas como **Plotly** , **Pandas**, e **Streamlit** para 
 
 ## 🚀 Como Executar
 
+# Para visualizar o Dashboard:
+### Acesse o link
+https://dashboard-vendas-fpm2pk5afazw4q2yxj8wwb.streamlit.app/
+
 # Para visualizar o projeto:
-### 1. Clone o repositório
+### Clone o repositório
 ```bash
 git clone https://github.com/SEU-USUARIO/SEU-REPO.git
 cd SEU-REPO
-
-# Para visualizar o Dashboard:
-### 1. Acesse o link
-https://dashboard-vendas-fpm2pk5afazw4q2yxj8wwb.streamlit.app/
